@@ -5,22 +5,21 @@ import queue
 import threading
 import time
 
+
 class AudioTranscriber:
     def __init__(self):
         self.model = whisper.load_model("base")
         self.audio_queue = queue.Queue()
         self.keep_running = True
-        
-        # Audio configuration
+
         self.format = pyaudio.paFloat32
         self.channels = 1
         self.rate = 16000
-        self.chunk_size = 1024 * 4  # Increased chunk size
+        self.chunk_size = 1024 * 4
         self.audio = pyaudio.PyAudio()
-        
-        # Buffer to accumulate audio
+
         self.buffer = np.array([], dtype=np.float32)
-        self.buffer_seconds = 3  # Process 3 seconds of audio at a time
+        self.buffer_seconds = 3
         self.samples_per_buffer = int(self.rate * self.buffer_seconds)
 
     def audio_callback(self, in_data, frame_count, time_info, status):
@@ -31,20 +30,19 @@ class AudioTranscriber:
     def process_audio(self):
         while self.keep_running:
             try:
-                # Get audio data from queue
+
                 audio_data = self.audio_queue.get(timeout=1)
                 self.buffer = np.append(self.buffer, audio_data)
 
-                # Process when buffer reaches desired size
                 if len(self.buffer) >= self.samples_per_buffer:
-                    # Convert audio to format expected by Whisper
+
                     audio_data = self.buffer[:self.samples_per_buffer]
                     self.buffer = self.buffer[self.samples_per_buffer:]
 
-                    # Transcribe
                     try:
-                        result = self.model.transcribe(audio_data, language='en')
-                        if result['text'].strip():  # Only print if there's actual text
+                        result = self.model.transcribe(
+                            audio_data, language='en')
+                        if result['text'].strip():
                             print("Transcription:", result['text'].strip())
                     except Exception as e:
                         print(f"Transcription error: {e}")
@@ -55,7 +53,7 @@ class AudioTranscriber:
                 print(f"Error in process_audio: {e}")
 
     def start_transcription(self):
-        # Start audio stream
+
         self.stream = self.audio.open(
             format=self.format,
             channels=self.channels,
@@ -64,13 +62,12 @@ class AudioTranscriber:
             frames_per_buffer=self.chunk_size,
             stream_callback=self.audio_callback
         )
-        
+
         print("Started audio stream")
-        
-        # Start processing thread
+
         self.process_thread = threading.Thread(target=self.process_audio)
         self.process_thread.start()
-        
+
         print("Listening... (Press 'q' to stop)")
 
     def stop_transcription(self):
@@ -82,7 +79,8 @@ class AudioTranscriber:
         if hasattr(self, 'process_thread'):
             self.process_thread.join()
 
+
 def transcribe_real_time():
     transcriber = AudioTranscriber()
     transcriber.start_transcription()
-    return transcriber  # Return the transcriber instance for stopping later
+    return transcriber
