@@ -71,7 +71,7 @@ class AudioTranscriber:
         self.process_thread = threading.Thread(target=self.process_audio)
         self.process_thread.start()
         
-        print("Listening... (Press Ctrl+C to stop)")
+        print("Listening... (Press 'q' to stop)")
 
     def stop_transcription(self):
         self.keep_running = False
@@ -84,14 +84,5 @@ class AudioTranscriber:
 
 def transcribe_real_time():
     transcriber = AudioTranscriber()
-    try:
-        transcriber.start_transcription()
-        # Keep the main thread alive
-        while True:
-            time.sleep(0.1)
-    except KeyboardInterrupt:
-        print("\nStopping transcription...")
-        transcriber.stop_transcription()
-
-if __name__ == "__main__":
-    transcribe_real_time()
+    transcriber.start_transcription()
+    return transcriber  # Return the transcriber instance for stopping later
