@@ -102,7 +102,7 @@ def process_pdf(pdf_path, prompt="Extract the text in the image", use_base64=Tru
 
 def main():
     # Can handle both PDFs and images
-    document_path = r"C:\Users\Admin\Downloads\1706.03762v7.pdf"  # or 'ocr.png'
+    document_path = r"C:\Users\Admin\Downloads\OpenAIVision-main\Messenger_creation_9AC1DF04-0AB6-48DB-9E0C-E20AF902FAF6.jpeg"  # or 'ocr.png'
     prompt = "Extract the text in the image"
     
     if document_path.lower().endswith('.pdf'):

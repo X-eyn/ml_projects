@@ -1,0 +1,63 @@
+{
+    "store": {
+        "name": "GRANDLUCKY SUPERMARKET",
+        "address_line_1": "Sudirman and Casablanca",
+        "address_line_2": "Jl. Dr. Satrio Kav 18",
+        "phone": "(021) 2991 9955"
+    },
+    "transaction": {
+        "date": "02/10/2023",
+        "time": "11:43:27",
+        "cashier": "Box 1 System",
+        "receipt_number": "00123681-008-0307"
+    },
+    "items": [
+        {
+            "description": "GARDEN 5S0COMPANY",
+            "price": 1008000
+        },
+        {
+            "description": "INDOFOOD BOOM 370GR",
+            "price": 102800
+        },
+        {
+            "description": "NESCAFE SPECIAL MIX 170GR",
+            "price": 67000
+        },
+        {
+            "description": "QUAKERS OAT 323GR",
+            "price": 22900
+        },
+        {
+            "description": "MEGANE SF 2 ASSTHANDSON",
+            "price": 183400
+        },
+        {
+            "description": "PANTENE SHAMPOO",
+            "price": 53900
+        },
+        {
+            "description": "SOKALILA DRIVIC",
+            "price": 113750
+        },
+        {
+            "description": "ANTANGIN",
+            "price": 117800
+        },
+        {
+            "description": "ABC SOYA SAUCE 600ML",
+            "price": 130500
+        },
+        {
+            "description": "SASA ST ROYALE",
+            "price": 161900
+        }
+    ],
+    "subtotal": 10444300,
+    "total": {
+        "value": 10444300,
+        "payment_method": "Cash",
+        "cash": 10500000,
+        "change": 55700
+    }
+}

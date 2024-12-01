@@ -1,0 +1,20 @@
+```json
+{
+  "section": "ক-বিভাগ",
+  "questions": [
+    {"number": 1, "answer": "দুই জনকে"},
+    {"number": 2, "answer": "হাতি"},
+    {"number": 3, "answer": "মোহাম্মদ তকিউল্লাহ"},
+    {"number": 4, "answer": "৬ টি ডিমের"},
+    {"number": 5, "answer": "অসাধান"},
+    {"number": 6, "answer": "মক্কা থেকে মদিনায়"},
+    {"number": 7, "answer": "কুরআন মাজিদ যন্ত্র"},
+    {"number": 8, "answer": "হজরত শাহিদ মোহাম্মদ"},
+    {"number": 9, "answer": "কাজে"},
+    {"number": 10, "answer": "তুর্ক"},
+    {"number": 11, "answer": "বৈকাল"},
+    {"number": 12, "answer": "বায়তুলিম"},
+    {"number": 13, "answer": "কুরআন শরীফ"}
+  ]
+}
+```
