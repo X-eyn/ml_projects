@@ -1,0 +1,9 @@
+transformers
+pandas
+numpy
+fastapi
+uvicorn
+spacy
+python-multipart
+pytesseract
+pdf2image
